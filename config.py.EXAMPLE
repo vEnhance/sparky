@@ -1,0 +1,26 @@
+############################
+## THE CONFIGURATION FILE ##
+############################
+
+import os
+
+# The following setting affects where data is saved
+# You may want to change it to e.g. ~/Dropbox/sparky.yaml
+DATA_PATH = os.path.expanduser("~/.sparky")
+# DATA_PATH = os.path.expanduser("~/Dropbox/sparky.yaml")
+
+# Categories for the bets
+WEIGHTS = [50, 60, 70, 80, 90, 95]
+
+# Options
+USE_COLOR = True # use terminal colors
+
+# Constants
+MAX_NUM = 2**48-1
+DEFAULT_STAT_NUM = 20 # default take last 20 bets in statistics
+DEFAULT_LS_NUM = 7 # default list at most seven bets per weight
+
+# Version Information
+SHORT_NAME = "Sparky"
+VERSION_NUMBER = "1.0.0"
+FULL_NAME = "Probability Calibrator"
