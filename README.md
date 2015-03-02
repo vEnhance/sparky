@@ -14,7 +14,7 @@ Usage
 Here is an example of a session.
 
     Welcome to Sparky!
-    sparky:) add 70 My letter arrives in Maryland  
+    sparky:) bet 70 My letter arrives in Maryland  
       5.    My letter arrives in Maryland                      2013-11-22
     sparky:) ls
     ============================   50% Bets   ============================
@@ -38,6 +38,5 @@ Almost all the commands have command-line options.  Type "help" for a full list 
 
 Todo
 ------
-* Allow editing tasks
+* Allow editing task weights
 * Write some actual documentation
-* Graphical interface for Lewis
