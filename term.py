@@ -42,10 +42,9 @@ class SparkyTerminal(cmd.Cmd):
 		"""Ends the interactive session. One can also use ^D."""
 		self.finished = True
 	do_exit = do_EOF
-	do_quit = do_EOF
 
-	def do_add(self, arg):
-		"""Adds a bet.  See add -h for syntax."""
+	def do_bet(self, arg):
+		"""Adds a bet.  See bet -h for syntax."""
 		opts = get_options(parser.parser_add, arg)
 		if opts is None: return
 		kwargs = {}
@@ -55,7 +54,6 @@ class SparkyTerminal(cmd.Cmd):
 			kwargs['outcome'] = convert_outcome(opts.outcome)
 		self.manager.add_bet(**kwargs)
 		print(display.format_bet(self.manager.bets[-1]))
-	do_bet = do_add
 	def do_res(self, arg):
 		"""Resolves a bet.  See res -h for syntax."""
 		opts = get_options(parser.parser_res, arg)
@@ -74,20 +72,20 @@ class SparkyTerminal(cmd.Cmd):
 				display_resolved = opts.display_resolved,
 	 			display_open = opts.display_open,
 				limit = opts.limit)
+	do_ll = do_ls
 	def do_stat(self, arg):
 		"""Prints statistics.  See stat -h for syntax."""
 		opts = get_options(parser.parser_stat, arg)
 		if opts is None: return
 		display.print_stats(
 				self.manager.provide_stats(limit = opts.limit))
-	do_stats = do_stat
 	def do_rm(self, arg):
 		"""Deletes a bet.  See rm -h for syntax."""
 		opts = get_options(parser.parser_rm, arg)
 		if opts is None: return
 		for index in reversed(sorted(opts.indices)):
 			self.manager.rm_bet(index)
-	do_del = do_rm
+	# do_del = do_rm
 	def do_edit(self, arg):
 		"""Edits the (text of) a bet.  See edit -h for syntax."""
 		opts = get_options(parser.parser_edit, arg)
